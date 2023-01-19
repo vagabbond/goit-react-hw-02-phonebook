@@ -15,7 +15,6 @@ class Phonebook extends Component {
   state = {
     name: '',
     number: '',
-    id: nanoid(),
   };
 
   handleChange = e => {
@@ -27,11 +26,11 @@ class Phonebook extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit({ ...this.state, id: nanoid() });
     this.reset();
   };
   reset = () => {
-    return this.setState({ name: '', number: '', id: nanoid() });
+    return this.setState({ name: '', number: '' });
   };
   render() {
     return (

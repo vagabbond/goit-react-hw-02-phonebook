@@ -15,7 +15,9 @@ class App extends Component {
   };
   onSubmit = data => {
     const contact = { ...data };
-    this.state.contacts.find(el => el.name === contact.name)
+    this.state.contacts.find(
+      el => el.name.toLocaleLowerCase() === contact.name.toLocaleLowerCase()
+    )
       ? alert(`${contact.name} is already in contacts`)
       : this.setState(prev => ({
           contacts: [contact, ...prev.contacts],
