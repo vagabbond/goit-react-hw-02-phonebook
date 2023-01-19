@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   PhonebookListStyled,
   PhonebookListItem,
@@ -31,4 +33,16 @@ const PhonebookList = ({ contacts, value, onChange, onClick }) => {
   );
 };
 
+PhonebookList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 export default PhonebookList;
